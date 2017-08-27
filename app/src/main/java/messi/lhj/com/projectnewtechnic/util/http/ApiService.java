@@ -1,4 +1,4 @@
-package messi.lhj.com.autorefreshtest.http;
+package messi.lhj.com.projectnewtechnic.util.http;
 
 
 //import com.wdb007.app.wordbang.bean.BookList;

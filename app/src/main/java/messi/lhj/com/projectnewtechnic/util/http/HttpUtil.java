@@ -1,9 +1,9 @@
-package messi.lhj.com.autorefreshtest.http;
+package messi.lhj.com.projectnewtechnic.util.http;
 
 import android.util.Log;
 
 
-import messi.lhj.com.autorefreshtest.Logger;
+import messi.lhj.com.projectnewtechnic.util.Logger;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;

@@ -1,4 +1,4 @@
-package messi.lhj.com.autorefreshtest;
+package messi.lhj.com.projectnewtechnic;
 
 import org.junit.Test;
 

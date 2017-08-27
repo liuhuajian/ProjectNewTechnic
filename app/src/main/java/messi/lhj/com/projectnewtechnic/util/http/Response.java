@@ -1,8 +1,8 @@
-package messi.lhj.com.autorefreshtest.http;
+package messi.lhj.com.projectnewtechnic.util.http;
 
 import java.util.List;
 
-import messi.lhj.com.autorefreshtest.entity.Picture;
+import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.Picture;
 
 /**
  * Created by messi on 2017/8/27.

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AutoRefreshTest.iml" filepath="$PROJECT_DIR$/AutoRefreshTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectNewTechnic.iml" filepath="$PROJECT_DIR$/ProjectNewTechnic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

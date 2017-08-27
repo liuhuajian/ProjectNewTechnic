@@ -1,4 +1,4 @@
-package messi.lhj.com.autorefreshtest.entity;
+package messi.lhj.com.projectnewtechnic.refreshAndreloadmore;
 
 /**
  * Created by messi on 2017/8/27.

@@ -1,4 +1,4 @@
-package messi.lhj.com.autorefreshtest;
+package messi.lhj.com.projectnewtechnic;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,17 +17,17 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler;
-import messi.lhj.com.autorefreshtest.entity.Picture;
-import messi.lhj.com.autorefreshtest.http.ApiWrapper;
-import messi.lhj.com.autorefreshtest.http.Response;
+import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MyAdapter;
+import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.Picture;
+import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.Student;
+import messi.lhj.com.projectnewtechnic.util.http.ApiWrapper;
+import messi.lhj.com.projectnewtechnic.util.http.Response;
+import messi.lhj.com.projectnewtechnic.util.Logger;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,7 +1,6 @@
-package messi.lhj.com.autorefreshtest;
+package messi.lhj.com.projectnewtechnic.refreshAndreloadmore;
 
 import android.content.Context;
-import android.support.v4.text.TextUtilsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -15,7 +14,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.util.List;
 
-import messi.lhj.com.autorefreshtest.entity.Picture;
+import messi.lhj.com.projectnewtechnic.util.Logger;
+import messi.lhj.com.projectnewtechnic.R;
 
 /**
  * Created by messi on 2017/8/27.

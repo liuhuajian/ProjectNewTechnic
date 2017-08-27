@@ -1,4 +1,4 @@
-package messi.lhj.com.autorefreshtest;
+package messi.lhj.com.projectnewtechnic;
 
 /**
  * Created by messi on 2017/8/27.
