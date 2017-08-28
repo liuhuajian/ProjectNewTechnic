@@ -5,12 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="messi.lhj.com.projectnewtechnic.DialogTest">
+    android:orientation="vertical"
+    tools:context="messi.lhj.com.projectnewtechnic.TestActivity">
 
     <Button
         android:onClick="btnOnclick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="dialog"
+        />
+    <Button
+        android:onClick="ZxBtnOnclick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="二维码"
         />
 </LinearLayout>
