@@ -109,4 +109,9 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
     public void refresh(List<T> datas){
         baseRecyclerViewAdapter.refresh(datas);
     }
+
+    public void insertData(List<T> datas){
+        baseRecyclerViewAdapter.insertData(datas);
+        notifyDataSetChanged();
+    }
 }

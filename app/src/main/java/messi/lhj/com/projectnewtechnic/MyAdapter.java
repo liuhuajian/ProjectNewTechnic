@@ -33,4 +33,9 @@ public class MyAdapter extends BaseRecyclerViewAdapter<String> {
         this.mLists = mLists;
         notifyDataSetChanged();
     }
+
+    public void insertData(List<String> mLists){
+        this.mLists.addAll(mLists);
+        notifyDataSetChanged();
+    }
 }

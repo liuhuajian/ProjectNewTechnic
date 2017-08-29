@@ -49,8 +49,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
         headerAndFooterWrapper.addHeaderView(headView);
         headerAndFooterWrapper.addHeaderView(headView2);
 
-        headerAndFooterWrapper.addFooterView(headView2);
-        headerAndFooterWrapper.addFooterView(headView);
+//        headerAndFooterWrapper.addFooterView(headView2);
+//        headerAndFooterWrapper.addFooterView(headView);
         recyclerview.setAdapter(headerAndFooterWrapper);
         refresh();
     }
@@ -71,4 +71,12 @@ public class RecyclerViewActivity extends AppCompatActivity {
             Toast.makeText(RecyclerViewActivity.this,"position="+postion,Toast.LENGTH_SHORT).show();
         }
     };
+
+    public void loadOnClick(View view) {
+        List<String> datas = new ArrayList<>();
+        for (int i=0;i<5;i++){
+            datas.add("liuhuajian"+i);
+        }
+        headerAndFooterWrapper.insertData(datas);
+    }
 }

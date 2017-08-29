@@ -60,4 +60,8 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
         this.mLists = mLists;
     }
 
+    public void insertData(List<T> mLists){
+
+    }
+
 }
