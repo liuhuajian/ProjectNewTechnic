@@ -1,4 +1,4 @@
-package messi.lhj.com.projectnewtechnic;
+package messi.lhj.com.projectnewtechnic.pages;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +19,8 @@ import butterknife.ButterKnife;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
+import messi.lhj.com.projectnewtechnic.Constants;
+import messi.lhj.com.projectnewtechnic.R;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MyAdapter;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.Picture;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.Student;

@@ -34,6 +34,6 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
     compile 'com.tencent.bugly:crashreport:latest.release'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'cn.yipianfengye.android:zxing-library:2.2'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

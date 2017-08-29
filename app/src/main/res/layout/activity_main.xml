@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="messi.lhj.com.projectnewtechnic.MainActivity">
+    tools:context="messi.lhj.com.projectnewtechnic.pages.MainActivity">
 
     <Button
         android:onClick="btnOnclick"

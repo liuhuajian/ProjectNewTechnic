@@ -1,4 +1,4 @@
-package messi.lhj.com.projectnewtechnic;
+package messi.lhj.com.projectnewtechnic.pages;
 
 import android.content.Intent;
 import android.support.v4.app.ActivityCompat;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 
+import messi.lhj.com.projectnewtechnic.CommonDialog;
+import messi.lhj.com.projectnewtechnic.R;
 import messi.lhj.com.projectnewtechnic.util.CheckPermissionUtils;
 import messi.lhj.com.projectnewtechnic.util.Logger;
 
@@ -65,5 +67,10 @@ public class TestActivity extends AppCompatActivity {
                 Toast.makeText(TestActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    public void recyOnClick(View view) {
+        Intent intent = new Intent(TestActivity.this,RecyclerViewActivity.class);
+        startActivity(intent);
     }
 }
