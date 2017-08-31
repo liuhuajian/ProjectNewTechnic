@@ -4,11 +4,8 @@ package messi.lhj.com.projectnewtechnic.http;
 /**
  * Created by Sunflower on 2016/1/11.
  */
-public class ResponseIterms<T> {
+public class ResponseIterms<T> extends Response{
 
-    public String code;
-    public String result;
-    public String message;
     public String totalcount;
     public String pushdata;
     public T items;

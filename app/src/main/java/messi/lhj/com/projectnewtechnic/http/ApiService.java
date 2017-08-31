@@ -5,7 +5,12 @@ package messi.lhj.com.projectnewtechnic.http;
 //import com.wdb007.app.wordbang.bean.BookShelf;
 //import com.wdb007.app.wordbang.bean.User;
 
+import messi.lhj.com.projectnewtechnic.bean.User;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -14,8 +19,11 @@ import rx.Observable;
 
 public interface ApiService {
 
-    @GET("api_demo/image-list.php")
-    Observable<Response> getPictures();
+
+    @GET("hhh")
+    Observable<Response<String>> getTestResponse();
+//    @GET("api_demo/image-list.php")
+//    Observable<ResponsePic> getPictures();
 //    @GET("wdb007/user/getRegisterCode")
 //    Observable<ResponseDetail> getMessagePass(@Query("mobile_no") String mobile);
 //

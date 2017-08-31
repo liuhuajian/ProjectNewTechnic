@@ -149,12 +149,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 //    public void btnOnclick(View view) {
-//        Observable<Response> pictures = new ApiWrapper().getPictures();
+//        Observable<ResponsePic> pictures = new ApiWrapper().getPictures();
 //        pictures.subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Action1<Response>() {
+//                .subscribe(new Action1<ResponsePic>() {
 //                    @Override
-//                    public void call(Response response) {
+//                    public void call(ResponsePic response) {
 //                        List<Picture> list = response.data.list;
 //                        myAdapter.updatePic(list);
 //                    }

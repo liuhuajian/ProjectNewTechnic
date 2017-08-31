@@ -1,37 +1,24 @@
 package messi.lhj.com.projectnewtechnic.http;
 
-import java.util.List;
-
-import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.Picture;
-
 /**
- * Created by messi on 2017/8/27.
+ * Created by messi on 2017/8/31.
  */
 
 public class Response {
+    public String code;
+    public String result;
+    public String message;
 
-    public DayPic data;
-
-    public String server_time;
-
-    public class DayPic{
-        public String time;
-        public List<Picture> list;
-
-        @Override
-        public String toString() {
-            return "DayPic{" +
-                    "time='" + time + '\'' +
-                    ", list=" + list +
-                    '}';
-        }
+    public boolean isSuccess() {
+        return result.equals("ok");
     }
 
     @Override
     public String toString() {
         return "Response{" +
-                "data=" + data +
-                ", server_time='" + server_time + '\'' +
+                "code='" + code + '\'' +
+                ", result='" + result + '\'' +
+                ", message='" + message + '\'' +
                 '}';
     }
 }

@@ -6,6 +6,7 @@ package messi.lhj.com.projectnewtechnic.http;
 //import com.wdb007.app.wordbang.bean.BookShelf;
 //import com.wdb007.app.wordbang.bean.User;
 
+import messi.lhj.com.projectnewtechnic.bean.User;
 import rx.Observable;
 
 /**
@@ -22,9 +23,14 @@ public class ApiWrapper {
         apiService = retrofitInstance.getService();
     }
 
-    public Observable<Response> getPictures(){
-        return apiService.getPictures();
+    public Observable<String> getTestResponse(){
+        return apiService.getTestResponse()
+                .compose(retrofitInstance.<String>applySchedulers());
     }
+
+//    public Observable<ResponsePic> getPictures(){
+//        return apiService.getPictures();
+//    }
 
 //    /**
 //     * 请求验证码
@@ -36,12 +42,12 @@ public class ApiWrapper {
 ////                .compose(retrofitInstance.<String>applySchedulersDetail());
 //    }
 
-    /**
-     * 请求登录
-     * @param mobile
-     * @param verifyCode
-     * @return
-     */
+//    /**
+//     * 请求登录
+//     * @param mobile
+//     * @param verifyCode
+//     * @return
+//     */
 //    public Observable<User> getUserLogin(String mobile, String verifyCode){
 //        return apiService.getUserLogin(mobile, verifyCode)
 //                .compose(retrofitInstance.<User>applySchedulersDetail());

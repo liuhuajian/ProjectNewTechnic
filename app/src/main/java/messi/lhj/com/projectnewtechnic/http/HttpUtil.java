@@ -121,7 +121,7 @@ public class HttpUtil {
         });
     }
 
-//    protected <T> Observable.Transformer<Response<T>, T> applySchedulersDetail() {
+//    protected <T> Observable.Transformer<ResponsePic<T>, T> applySchedulersDetail() {
 //        return (Observable.Transformer<ResponseDetail<T>, T>) transformerDetail;
 //    }
 
@@ -186,6 +186,53 @@ public class HttpUtil {
 
                 if (!subscriber.isUnsubscribed()) {
                     subscriber.onCompleted();
+                }
+            }
+        });
+    }
+
+
+    protected Observable.Transformer<Response, String> applySchedulers() {
+        return (Observable.Transformer<Response, String>) transformer;
+    }
+
+    final Observable.Transformer transformer = new Observable.Transformer() {
+        @Override
+        public Object call(Object observable) {
+            return ((Observable) observable).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .flatMap(new Func1() {
+                        @Override
+                        public Object call(Object response) {
+                            return flatResponse((Response) response);
+                        }
+                    })
+                    ;
+        }
+    };
+
+    public  Observable flatResponse(final Response response){
+        return Observable.create(new Observable.OnSubscribe() {
+            @Override
+            public void call(Object o) {
+
+                if (o instanceof Subscriber) {
+                    Subscriber subscriber = (Subscriber) o;
+                    if (response.isSuccess()) {
+                        if (!subscriber.isUnsubscribed()) {
+                            Logger.d("string-->detail=="+"-->items=="+response.toString());
+                            subscriber.onNext(response.message);
+                        }
+                    } else {
+                        if (!subscriber.isUnsubscribed()) {
+                            subscriber.onError(new APIException(response.code, response.message));
+                        }
+                        return;
+                    }
+
+                    if (!subscriber.isUnsubscribed()) {
+                        subscriber.onCompleted();
+                    }
                 }
             }
         });

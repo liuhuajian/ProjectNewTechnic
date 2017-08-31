@@ -37,7 +37,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
     private void initData() {
 //        recyclerview.setLayoutManager(new GridLayoutManager(this,2));
-        recyclerview.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+//        recyclerview.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        recyclerview.setLayoutManager(new LinearLayoutManager(this));
         myAdapter = new HeaderAndFootAdapter(this);
         headerAndFooterWrapper = new HeaderAndFooterWrapper(myAdapter);
         View headView = LayoutInflater.from(this).inflate(R.layout.headview,null);
@@ -46,9 +47,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
         View headView2 = LayoutInflater.from(this).inflate(R.layout.headview2,null);
         MyLayoutParams.setViewMatch(headView2);
         headerAndFooterWrapper.addHeaderView(headView);
-        headerAndFooterWrapper.addHeaderView(headView2);
+//        headerAndFooterWrapper.addHeaderView(headView2);
 
-//        headerAndFooterWrapper.addFooterView(headView2);
+        headerAndFooterWrapper.addFooterView(headView2);
 //        headerAndFooterWrapper.addFooterView(headView);
         recyclerview.setAdapter(headerAndFooterWrapper);
         refresh();
