@@ -3,7 +3,7 @@ package messi.lhj.com.projectnewtechnic.base;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import messi.lhj.com.projectnewtechnic.inter.MyItemClickListener;
+import messi.lhj.com.projectnewtechnic.interfaces.MyItemClickListener;
 import messi.lhj.com.projectnewtechnic.util.Logger;
 
 

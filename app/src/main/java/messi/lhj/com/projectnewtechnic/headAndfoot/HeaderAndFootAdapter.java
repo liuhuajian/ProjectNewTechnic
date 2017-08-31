@@ -1,10 +1,11 @@
-package messi.lhj.com.projectnewtechnic;
+package messi.lhj.com.projectnewtechnic.headAndfoot;
 
 import android.content.Context;
 import android.widget.TextView;
 
 import java.util.List;
 
+import messi.lhj.com.projectnewtechnic.R;
 import messi.lhj.com.projectnewtechnic.base.BaseRecyclerViewAdapter;
 import messi.lhj.com.projectnewtechnic.base.BaseViewHolder;
 
@@ -12,8 +13,8 @@ import messi.lhj.com.projectnewtechnic.base.BaseViewHolder;
  * Created by messi on 2017/8/29.
  */
 
-public class MyAdapter extends BaseRecyclerViewAdapter<String> {
-    public MyAdapter(Context context) {
+public class HeaderAndFootAdapter extends BaseRecyclerViewAdapter<String> {
+    public HeaderAndFootAdapter(Context context) {
         super(context);
     }
 
@@ -27,6 +28,7 @@ public class MyAdapter extends BaseRecyclerViewAdapter<String> {
         String string = mLists.get(position);
         TextView textView = holder.get(R.id.item_textview);
         textView.setText(string);
+        textView.setHeight(100 + (position % 3) * 30);
     }
 
     public void refresh(List<String> mLists){

@@ -1,4 +1,4 @@
-package messi.lhj.com.projectnewtechnic;
+package messi.lhj.com.projectnewtechnic.common;
 
 /**
  * Created by messi on 2017/8/27.

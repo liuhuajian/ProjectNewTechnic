@@ -1,4 +1,4 @@
-package messi.lhj.com.projectnewtechnic.pages;
+package messi.lhj.com.projectnewtechnic;
 
 import android.content.Intent;
 import android.support.v4.app.ActivityCompat;
@@ -10,8 +10,8 @@ import android.widget.Toast;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 
-import messi.lhj.com.projectnewtechnic.CommonDialog;
-import messi.lhj.com.projectnewtechnic.R;
+import messi.lhj.com.projectnewtechnic.headAndfoot.RecyclerViewActivity;
+import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MainActivity;
 import messi.lhj.com.projectnewtechnic.util.CheckPermissionUtils;
 import messi.lhj.com.projectnewtechnic.util.Logger;
 
@@ -71,6 +71,11 @@ public class TestActivity extends AppCompatActivity {
 
     public void recyOnClick(View view) {
         Intent intent = new Intent(TestActivity.this,RecyclerViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void loadMoreBtn(View view) {
+        Intent intent = new Intent(TestActivity.this,MainActivity.class);
         startActivity(intent);
     }
 }

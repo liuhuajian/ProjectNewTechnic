@@ -1,4 +1,4 @@
-package messi.lhj.com.projectnewtechnic.pages;
+package messi.lhj.com.projectnewtechnic.refreshAndreloadmore;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,18 +19,9 @@ import butterknife.ButterKnife;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-import messi.lhj.com.projectnewtechnic.Constants;
+import messi.lhj.com.projectnewtechnic.common.Constants;
 import messi.lhj.com.projectnewtechnic.R;
-import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MyAdapter;
-import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.Picture;
-import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.Student;
-import messi.lhj.com.projectnewtechnic.util.http.ApiWrapper;
-import messi.lhj.com.projectnewtechnic.util.http.Response;
 import messi.lhj.com.projectnewtechnic.util.Logger;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-//        initView();
-//        initData();
-//        updateData();
+        initView();
+        initData();
+        updateData();
     }
 
 
@@ -157,17 +148,17 @@ public class MainActivity extends AppCompatActivity {
         recyclerview.setAdapter(myAdapter);
     }
 
-    public void btnOnclick(View view) {
-        Observable<Response> pictures = new ApiWrapper().getPictures();
-        pictures.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Response>() {
-                    @Override
-                    public void call(Response response) {
-                        List<Picture> list = response.data.list;
-                        myAdapter.updatePic(list);
-                    }
-                });
-    }
+//    public void btnOnclick(View view) {
+//        Observable<Response> pictures = new ApiWrapper().getPictures();
+//        pictures.subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Action1<Response>() {
+//                    @Override
+//                    public void call(Response response) {
+//                        List<Picture> list = response.data.list;
+//                        myAdapter.updatePic(list);
+//                    }
+//                });
+//    }
 
 }

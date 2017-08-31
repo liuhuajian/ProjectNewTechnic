@@ -1,4 +1,4 @@
-package messi.lhj.com.projectnewtechnic.inter;
+package messi.lhj.com.projectnewtechnic.interfaces;
 
 import android.view.View;
 

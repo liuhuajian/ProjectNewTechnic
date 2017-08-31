@@ -1,17 +1,17 @@
-package messi.lhj.com.projectnewtechnic.util.http;
+package messi.lhj.com.projectnewtechnic.http;
 
 
 /**
  * Created by Sunflower on 2016/1/11.
  */
-public class ResponseDetail<T> {
+public class ResponseIterms<T> {
 
     public String code;
     public String result;
     public String message;
     public String totalcount;
     public String pushdata;
-    public T detail;
+    public T items;
 
     public boolean isSuccess() {
         return result.equals("ok");
@@ -25,7 +25,7 @@ public class ResponseDetail<T> {
                 ", message='" + message + '\'' +
                 ", totalcount='" + totalcount + '\'' +
                 ", pushdata='" + pushdata + '\'' +
-                ", detail=" + detail +
+                ", items=" + items +
                 '}';
     }
 }
