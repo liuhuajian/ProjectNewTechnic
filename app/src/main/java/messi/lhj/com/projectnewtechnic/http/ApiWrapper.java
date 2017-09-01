@@ -23,10 +23,10 @@ public class ApiWrapper {
         apiService = retrofitInstance.getService();
     }
 
-    public Observable<String> getTestResponse(){
-        return apiService.getTestResponse()
-                .compose(retrofitInstance.<String>applySchedulers());
-    }
+//    public Observable<String> getTestResponse(){
+//        return apiService.getTestResponse()
+//                .compose(retrofitInstance.<String>applySchedulers());
+//    }
 
 //    public Observable<ResponsePic> getPictures(){
 //        return apiService.getPictures();

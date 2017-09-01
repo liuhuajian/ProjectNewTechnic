@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "messi.lhj.com.projectnewtechnic"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -21,6 +21,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/universal-image-loader-1.9.5.jar')
+    compile files('libs/zxing.jar')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'in.srain.cube:ptr-load-more:1.0.6'
@@ -34,6 +35,5 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
     compile 'com.tencent.bugly:crashreport:latest.release'
-    compile 'cn.yipianfengye.android:zxing-library:2.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

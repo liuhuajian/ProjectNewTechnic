@@ -44,6 +44,10 @@
         </activity>
         <activity android:name=".headAndfoot.RecyclerViewActivity">
         </activity>
+        <activity android:name=".zxing.CaptureActivity">
+        </activity>
+        <activity android:name=".circlehead.CircleHeadActivity">
+        </activity>
     </application>
 
 </manifest>

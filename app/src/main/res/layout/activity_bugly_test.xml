@@ -9,27 +9,35 @@
     tools:context="messi.lhj.com.projectnewtechnic.TestActivity">
 
     <Button
-        android:onClick="loadMoreBtn"
+        android:id="@+id/loadMoreBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LoadMore"
         />
     <Button
-        android:onClick="btnOnclick"
+        android:id="@+id/btnOnclick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="dialog"
         />
     <Button
-        android:onClick="ZxBtnOnclick"
+        android:id="@+id/ZxBtnOnclick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="二维码"
         />
     <Button
-        android:onClick="recyOnClick"
+        android:id="@+id/recyOnClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="recycler_test"
         />
+    <Button
+        android:id="@+id/circleImag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="loadCircleImag"
+        />
+
+
 </LinearLayout>

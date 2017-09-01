@@ -1,39 +1,80 @@
 package messi.lhj.com.projectnewtechnic;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.Button;
 
-import com.uuzuche.lib_zxing.activity.CaptureActivity;
-import com.uuzuche.lib_zxing.activity.CodeUtils;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
 import messi.lhj.com.projectnewtechnic.headAndfoot.RecyclerViewActivity;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MainActivity;
 import messi.lhj.com.projectnewtechnic.util.CheckPermissionUtils;
 import messi.lhj.com.projectnewtechnic.util.Logger;
+import messi.lhj.com.projectnewtechnic.zxing.CaptureActivity;
 
 public class TestActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1;
+    @BindView(R.id.loadMoreBtn)
+    Button loadMoreBtn;
+    @BindView(R.id.btnOnclick)
+    Button btnOnclick;
+    @BindView(R.id.ZxBtnOnclick)
+    Button ZxBtnOnclick;
+    @BindView(R.id.recyOnClick)
+    Button recyOnClick;
+    @BindView(R.id.circleImag)
+    Button circleImag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bugly_test);
+        ButterKnife.bind(this);
         initPermission();
+        initView();
     }
 
-    public void btnOnclick(View view) {
-        new CommonDialog(this,R.style.dialog);
+    private void initView() {
+        loadMoreBtn.setOnClickListener(onClickListener);
+        btnOnclick.setOnClickListener(onClickListener);
+        ZxBtnOnclick.setOnClickListener(onClickListener);
+        recyOnClick.setOnClickListener(onClickListener);
+        circleImag.setOnClickListener(onClickListener);
     }
 
-    public void ZxBtnOnclick(View view) {
-        Intent intent = new Intent(TestActivity.this, CaptureActivity.class);
-        startActivityForResult(intent,REQUEST_CODE);
-    }
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.loadMoreBtn:
+                    Intent intent = new Intent(TestActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btnOnclick:
+                    new CommonDialog(TestActivity.this, R.style.dialog);
+                    break;
+                case R.id.ZxBtnOnclick:
+                    intent = new Intent(TestActivity.this, CaptureActivity.class);
+                    startActivityForResult(intent, REQUEST_CODE);
+                    break;
+                case R.id.recyOnClick:
+                    intent = new Intent(TestActivity.this, RecyclerViewActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.circleImag:
+                    intent = new Intent(TestActivity.this, CircleHeadActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+        }
+    };
+
 
     private void initPermission() {
         //检查权限
@@ -51,31 +92,17 @@ public class TestActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Logger.d("onActivityResult");
-        if (requestCode ==REQUEST_CODE){
-            Logger.d("onActivityResult");
-            if (data==null)
-                return;
-            Bundle bundle = data.getExtras();
-            if (bundle == null) {
-                return;
-            }
-            Logger.d("onActivityResult");
-            if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
-                String result = bundle.getString(CodeUtils.RESULT_STRING);
-                Toast.makeText(this, "解析结果:" + result, Toast.LENGTH_LONG).show();
-            } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
-                Toast.makeText(TestActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                //扫描后的业务逻辑
+                String code = data.getStringExtra("SCAN_RESULT");
+                Logger.d("code-->" + code);
+            } else if (resultCode == 300) {
+                //从本地相册扫描后的业务逻辑
+                String code = data.getStringExtra("LOCAL_PHOTO_RESULT");
+                Logger.d("code-->" + code);
             }
         }
     }
 
-    public void recyOnClick(View view) {
-        Intent intent = new Intent(TestActivity.this,RecyclerViewActivity.class);
-        startActivity(intent);
-    }
-
-    public void loadMoreBtn(View view) {
-        Intent intent = new Intent(TestActivity.this,MainActivity.class);
-        startActivity(intent);
-    }
 }

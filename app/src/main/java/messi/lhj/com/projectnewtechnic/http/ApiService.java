@@ -21,7 +21,7 @@ public interface ApiService {
 
 
     @GET("hhh")
-    Observable<Response<String>> getTestResponse();
+    Observable<Response> getTestResponse();
 //    @GET("api_demo/image-list.php")
 //    Observable<ResponsePic> getPictures();
 //    @GET("wdb007/user/getRegisterCode")
