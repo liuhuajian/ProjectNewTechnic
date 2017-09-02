@@ -11,6 +11,7 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
+import messi.lhj.com.projectnewtechnic.gaode.GaodeActivity;
 import messi.lhj.com.projectnewtechnic.headAndfoot.RecyclerViewActivity;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MainActivity;
 import messi.lhj.com.projectnewtechnic.util.CheckPermissionUtils;
@@ -30,6 +31,8 @@ public class TestActivity extends AppCompatActivity {
     Button recyOnClick;
     @BindView(R.id.circleImag)
     Button circleImag;
+    @BindView(R.id.gaodebtn)
+    Button gaodebtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class TestActivity extends AppCompatActivity {
         ZxBtnOnclick.setOnClickListener(onClickListener);
         recyOnClick.setOnClickListener(onClickListener);
         circleImag.setOnClickListener(onClickListener);
+        gaodebtn.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -69,6 +73,10 @@ public class TestActivity extends AppCompatActivity {
                     break;
                 case R.id.circleImag:
                     intent = new Intent(TestActivity.this, CircleHeadActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.gaodebtn:
+                    intent = new Intent(TestActivity.this, GaodeActivity.class);
                     startActivity(intent);
                     break;
             }
