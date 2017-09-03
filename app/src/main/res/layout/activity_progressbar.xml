@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="messi.lhj.com.projectnewtechnic.progressbar.ProgressbarActivity">
+
+    <ProgressBar
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/progressbar"
+        android:max="100"
+        android:progress="10"
+        android:indeterminateDrawable="@drawable/progress2"
+        android:indeterminateDuration="1500"
+        android:layout_centerInParent="true"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressbar_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/progress_horizontal"
+        android:max="100"
+        android:progress="0"
+        />
+</LinearLayout>

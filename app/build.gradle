@@ -43,8 +43,15 @@ dependencies {
     compile files('libs/zxing.jar')
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    //3D地图so及jar
+    //2D地图
+//    compile 'com.amap.api:map2d:latest.integration'
+    //定位功能
+    //搜索功能
+    //导航
+//    compile 'com.amap.api:navi-3dmap:latest.integration'
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+//    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'in.srain.cube:ptr-load-more:1.0.6'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.jakewharton:butterknife:8.8.1'
@@ -56,15 +63,8 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
     compile 'com.tencent.bugly:crashreport:latest.release'
-    //3D地图so及jar
     compile 'com.amap.api:3dmap:latest.integration'
-    //2D地图
-//    compile 'com.amap.api:map2d:latest.integration'
-    //定位功能
     compile 'com.amap.api:location:latest.integration'
-    //搜索功能
     compile 'com.amap.api:search:latest.integration'
-    //导航
-//    compile 'com.amap.api:navi-3dmap:latest.integration'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

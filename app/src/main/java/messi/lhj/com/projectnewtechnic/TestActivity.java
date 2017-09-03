@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
 import messi.lhj.com.projectnewtechnic.gaode.GaodeActivity;
 import messi.lhj.com.projectnewtechnic.headAndfoot.RecyclerViewActivity;
+import messi.lhj.com.projectnewtechnic.progressbar.ProgressbarActivity;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MainActivity;
 import messi.lhj.com.projectnewtechnic.util.CheckPermissionUtils;
 import messi.lhj.com.projectnewtechnic.util.Logger;
@@ -33,6 +34,8 @@ public class TestActivity extends AppCompatActivity {
     Button circleImag;
     @BindView(R.id.gaodebtn)
     Button gaodebtn;
+    @BindView(R.id.progressbar)
+    Button progressbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class TestActivity extends AppCompatActivity {
         recyOnClick.setOnClickListener(onClickListener);
         circleImag.setOnClickListener(onClickListener);
         gaodebtn.setOnClickListener(onClickListener);
+        progressbar.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -77,6 +81,10 @@ public class TestActivity extends AppCompatActivity {
                     break;
                 case R.id.gaodebtn:
                     intent = new Intent(TestActivity.this, GaodeActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.progressbar:
+                    intent = new Intent(TestActivity.this, ProgressbarActivity.class);
                     startActivity(intent);
                     break;
             }

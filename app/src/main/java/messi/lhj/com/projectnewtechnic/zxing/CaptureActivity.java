@@ -166,7 +166,6 @@ public class CaptureActivity extends Activity implements SurfaceHolder.Callback,
             intent.putExtras(bundle);
             startActivity(intent);*/
             Logger.d("resultString-->"+resultString);
-            handler = null;
 
             Intent data = new Intent(this, RecyclerViewActivity.class);
             startActivity(data);

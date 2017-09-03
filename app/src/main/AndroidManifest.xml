@@ -64,6 +64,8 @@
             android:name="com.amap.api.v2.apikey"
             android:value="10625b4fd8fda9ba1937c9b21a938199"/>
 
+        <activity android:name=".progressbar.ProgressbarActivity">
+        </activity>
     </application>
 
 </manifest>
