@@ -6,14 +6,17 @@ import com.amap.api.maps.AMap;
 import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.MarkerOptions;
+import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.WalkPath;
 import com.amap.api.services.route.WalkStep;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import messi.lhj.com.projectnewtechnic.gaode.util.AMapServicesUtil;
+import messi.lhj.com.projectnewtechnic.util.Logger;
 
 /**
  * 步行路线图层类。在高德地图API里，如果要显示步行路线规划，可以用此类来创建步行路线图层。如不满足需求，也可以自己创建自定义的步行路线图层。
@@ -26,6 +29,8 @@ public class WalkRouteOverlay extends RouteOverlay {
     private BitmapDescriptor walkStationDescriptor= null;
 
     private WalkPath walkPath;
+
+    private List<Float> distanceList;
 	/**
 	 * 通过此构造函数创建步行路线图层。
 	 * @param context 当前activity。
@@ -53,12 +58,16 @@ public class WalkRouteOverlay extends RouteOverlay {
         try {
             List<WalkStep> walkPaths = walkPath.getSteps();
             mPolylineOptions.add(startPoint);
+            distanceList = new ArrayList<>();
             for (int i = 0; i < walkPaths.size(); i++) {
                 WalkStep walkStep = walkPaths.get(i);
                 LatLng latLng = AMapServicesUtil.convertToLatLng(walkStep
                         .getPolyline().get(0));
                 
 				addWalkStationMarkers(walkStep, latLng);
+                float distance = walkStep.getDistance();
+                Logger.d("distance-->"+distance);
+                distanceList.add(distance);
                 addWalkPolyLines(walkStep);
                
             }
@@ -69,6 +78,17 @@ public class WalkRouteOverlay extends RouteOverlay {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+    }
+
+    public float getDistanceFromStartToEnd(){
+        float distance = 0;
+        if (distanceList ==null)
+            return 0;
+        for (int i=0;i<distanceList.size();i++){
+            distance+=distanceList.get(i);
+        }
+        Logger.d(distance+"");
+        return distance;
     }
 	
 	/**
@@ -141,6 +161,13 @@ public class WalkRouteOverlay extends RouteOverlay {
 
         mPolylineOptions = new PolylineOptions();
         mPolylineOptions.color(getWalkColor()).width(getRouteWidth());
+    }
+
+    public void removeAllPolyline(){
+        for (Polyline polyline : allPolyLines) {
+            Logger.d(allPolyLines.toString());
+            polyline.remove();
+        }
     }
 
 

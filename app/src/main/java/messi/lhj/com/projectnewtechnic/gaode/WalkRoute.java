@@ -3,12 +3,11 @@ package messi.lhj.com.projectnewtechnic.gaode;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.model.RouteOverlay;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Polyline;
 import com.amap.api.services.core.LatLonPoint;
-import com.amap.api.services.route.BusRouteResult;
-import com.amap.api.services.route.DriveRouteResult;
-import com.amap.api.services.route.RideRouteResult;
 import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.WalkPath;
 import com.amap.api.services.route.WalkRouteResult;
@@ -21,7 +20,7 @@ import messi.lhj.com.projectnewtechnic.util.Logger;
  * Created by messi on 2017/9/2.
  */
 
-public class WalkRoute implements RouteSearch.OnRouteSearchListener {
+public class WalkRoute {
 
     private static final int ROUTE_TYPE_WALK = 1;
     private LatLonPoint mStartPoint;
@@ -29,21 +28,35 @@ public class WalkRoute implements RouteSearch.OnRouteSearchListener {
     private RouteSearch mRouteSearch;
     private Context context;
 
-    private RouteOverlay routeOverlay;
     public WalkRouteOverlay walkRouteOverlay;
     private AMap aMap;
+    private LatLng startLatlng;
+    private LatLng endLatlng;
 
-    public WalkRoute(Context context , AMap aMap){
+    public WalkRoute(Context context, AMap aMap) {
         this.context = context;
         this.aMap = aMap;
+    }
+
+    public WalkRoute setStartLocation(LatLng startLatlng){
+        this.startLatlng = startLatlng;
+        return this;
+    }
+    public WalkRoute setEndLatlng(LatLng endLatlng){
+        this.endLatlng = endLatlng;
+        return this;
+    }
+
+    public void handleSearch(){
         walkRouteSearch();
     }
 
-    private void walkRouteSearch(){
-        mStartPoint = new LatLonPoint(31.138162, 121.417953);
-        mEndPoint = new LatLonPoint(31.152905,121.442732);
+    private void walkRouteSearch() {
+        mStartPoint = new LatLonPoint(startLatlng.latitude, startLatlng.longitude);
+        mEndPoint = new LatLonPoint(endLatlng.latitude, endLatlng.longitude);
+        Logger.d(mStartPoint.toString() + "--->" + mEndPoint.toString());
         mRouteSearch = new RouteSearch(context);
-        mRouteSearch.setRouteSearchListener(this);
+        mRouteSearch.setRouteSearchListener(myRouteSearchListener);
         searchRouteResult(ROUTE_TYPE_WALK, RouteSearch.WalkDefault);
     }
 
@@ -52,12 +65,12 @@ public class WalkRoute implements RouteSearch.OnRouteSearchListener {
 
             if (mStartPoint == null) {
 
-                Toast.makeText(context, "定位中，稍后再试...",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "定位中，稍后再试...", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (mEndPoint == null) {
 
-                Toast.makeText(context, "终点未设置",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "终点未设置", Toast.LENGTH_SHORT).show();
             }
             final RouteSearch.FromAndTo fromAndTo = new RouteSearch.FromAndTo(
                     mStartPoint, mEndPoint);
@@ -68,43 +81,39 @@ public class WalkRoute implements RouteSearch.OnRouteSearchListener {
 
 
         } catch (Exception e) {
-           Toast.makeText(context,"1Exception: " + e.toString(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "1Exception: " + e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
-    @Override
-    public void onBusRouteSearched(BusRouteResult busRouteResult, int i) {
-
-    }
-
-    @Override
-    public void onDriveRouteSearched(DriveRouteResult driveRouteResult, int i) {
-
-    }
-
-    @Override
-    public void onWalkRouteSearched(WalkRouteResult walkRouteResult, int i) {
-        Logger.d("onWalkRouteSearched-->"+i);
-        if (i ==1000){
-            //在地图上绘制路径：
-            List<WalkPath> paths = walkRouteResult.getPaths();
-
-            final WalkPath walkPath = walkRouteResult.getPaths()
-                    .get(0);
-            if (walkRouteOverlay != null){
-                walkRouteOverlay.removeFromMap();
+    MyRouteSearchListener myRouteSearchListener = new MyRouteSearchListener() {
+        @Override
+        public void onWalkRouteSearched(WalkRouteResult walkRouteResult, int i) {
+            super.onWalkRouteSearched(walkRouteResult, i);
+            Logger.d("onWalkRouteSearched-->" + i);
+            if (i == 1000) {
+                //在地图上绘制路径：
+                final WalkPath walkPath = walkRouteResult.getPaths()
+                        .get(0);
+                if (walkRouteOverlay != null){
+                    walkRouteOverlay.removeFromMap();
+                }
+                if (walkRouteOverlay != null) {
+                    List<Polyline> allPolyLines = walkRouteOverlay.allPolyLines;
+                    Logger.d(allPolyLines.toString());
+                    for (Polyline polyline : allPolyLines) {
+                        polyline.remove();
+                    }
+                }
+                walkRouteOverlay = new WalkRouteOverlay(
+                        context, aMap, walkPath,
+                        walkRouteResult.getStartPos(),
+                        walkRouteResult.getTargetPos());
+                walkRouteOverlay.addToMap();
+                walkRouteOverlay.zoomToSpan();
+                float distanceFromStartToEnd = walkRouteOverlay.getDistanceFromStartToEnd();
+                Logger.d("distanceFromStartToEnd-->"+distanceFromStartToEnd);
             }
-            walkRouteOverlay = new WalkRouteOverlay(
-                    context, aMap, walkPath,
-                    walkRouteResult.getStartPos(),
-                    walkRouteResult.getTargetPos());
-            walkRouteOverlay.addToMap();
-            walkRouteOverlay.zoomToSpan();
         }
-    }
+    };
 
-    @Override
-    public void onRideRouteSearched(RideRouteResult rideRouteResult, int i) {
-
-    }
 }

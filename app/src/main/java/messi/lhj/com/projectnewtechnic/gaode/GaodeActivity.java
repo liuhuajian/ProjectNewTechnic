@@ -9,6 +9,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.AMapUtils;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
@@ -35,9 +36,16 @@ import com.amap.api.maps.model.MyLocationStyle;
 //import com.amap.api.services.route.WalkRouteResult;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import messi.lhj.com.projectnewtechnic.R;
+import messi.lhj.com.projectnewtechnic.common.Constants;
 import messi.lhj.com.projectnewtechnic.util.Logger;
 
 public class GaodeActivity extends AppCompatActivity implements LocationSource, AMapLocationListener, AMap.OnMarkerClickListener {
@@ -48,6 +56,8 @@ public class GaodeActivity extends AppCompatActivity implements LocationSource, 
     private AMapLocationClient mLocationClient;
     private AMapLocationClientOption mLocationOption;
     private boolean isFirstLoc = true;
+    private AMapLocation myAmapLocation;
+    private WalkRoute walkRoute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,9 +143,9 @@ public class GaodeActivity extends AppCompatActivity implements LocationSource, 
                 aMapLocation.getStreetNum();//街道门牌号信息
                 aMapLocation.getCityCode();//城市编码
                 aMapLocation.getAdCode();//地区编码
-
                 // 如果不设置标志位，此时再拖动地图时，它会不断将地图移动到当前的位置
                 if (isFirstLoc) {
+                    myAmapLocation = aMapLocation;
                     Logger.d(aMapLocation.toString());
                     //设置缩放级别
                     aMap.moveCamera(CameraUpdateFactory.zoomTo(17));
@@ -143,7 +153,7 @@ public class GaodeActivity extends AppCompatActivity implements LocationSource, 
                     aMap.moveCamera(CameraUpdateFactory.changeLatLng(new LatLng(aMapLocation.getLatitude(), aMapLocation.getLongitude())));
                     //点击定位按钮 能够将地图的中心移动到定位点
                     aMap.addMarker(getMarkerOptions(aMapLocation));
-
+                    addMarks();
                     //添加图钉
                     //获取定位信息
                     StringBuffer buffer = new StringBuffer();
@@ -165,12 +175,29 @@ public class GaodeActivity extends AppCompatActivity implements LocationSource, 
         
     }
 
+    private void addMarks() {
+        try {
+            JSONArray jsonArray = new JSONArray(Constants.location);
+            for (int i=0;i<4;i++) {
+                JSONArray jsonArray1 = jsonArray.getJSONArray(i);
+                MarkerOptions options = new MarkerOptions();
+                //图标
+                options.icon(BitmapDescriptorFactory.fromResource(R.drawable.tuding_my));
+                //位置
+                options.position(new LatLng(jsonArray1.getDouble(0), jsonArray1.getDouble(1)));
+                aMap.addMarker(options);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     //自定义一个图钉，并且设置图标，当我们点击图钉时，显示设置的信息
     private MarkerOptions getMarkerOptions(AMapLocation amapLocation) {
         //设置图钉选项
         MarkerOptions options = new MarkerOptions();
         //图标
-        options.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher));
+        options.icon(BitmapDescriptorFactory.fromResource(R.drawable.tuding_my));
         //位置
         options.position(new LatLng(amapLocation.getLatitude(), amapLocation.getLongitude()));
         StringBuffer buffer = new StringBuffer();
@@ -189,10 +216,16 @@ public class GaodeActivity extends AppCompatActivity implements LocationSource, 
     @Override
     public boolean onMarkerClick(Marker marker) {
         Logger.d(marker.getPosition().toString());
+        LatLng position = marker.getPosition();
 //        mAMapNavi = AMapNavi.getInstance(getApplicationContext());
 ////添加监听回调，用于处理算路成功
 //        mAMapNavi.addAMapNaviListener(myAmapNaviListener);
-        new WalkRoute(this,aMap);
+        if (walkRoute ==null) {
+            walkRoute = new WalkRoute(this, aMap);
+        }
+        walkRoute.setStartLocation(new LatLng(myAmapLocation.getLatitude(),myAmapLocation.getLongitude()))
+                .setEndLatlng(position)
+                .handleSearch();
         return false;
     }
 
