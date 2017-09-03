@@ -27,6 +27,7 @@ public class Constants {
                     "[\"seven\",\"哈哈哈\"]"+
                     "]";
 
+//    public static final String[] text_content = {"美猴王"};
     public static final String[] text_content = {"美猴王","齐天大圣","斗战胜佛","玉皇大帝","如来佛祖","观音菩萨"};
 
     public static final String location =

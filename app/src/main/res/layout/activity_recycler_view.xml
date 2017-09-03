@@ -14,11 +14,12 @@
         android:layout_height="wrap_content"
         android:text="加载"
         />
-    <android.support.v7.widget.RecyclerView
+    <messi.lhj.com.projectnewtechnic.view.CustomerRecyclerview
         android:id="@+id/recyclerview"
         android:layout_margin="20dp"
+        android:background="#45b97c"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </messi.lhj.com.projectnewtechnic.view.CustomerRecyclerview>
 </LinearLayout>

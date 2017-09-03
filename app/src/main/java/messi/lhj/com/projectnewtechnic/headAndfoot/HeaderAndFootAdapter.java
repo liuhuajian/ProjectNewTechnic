@@ -25,6 +25,10 @@ public class HeaderAndFootAdapter extends BaseRecyclerViewAdapter<String> {
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
+
+        if (mLists.size() ==1){
+
+        }
         String string = mLists.get(position);
         TextView textView = holder.get(R.id.item_textview);
         textView.setText(string);
