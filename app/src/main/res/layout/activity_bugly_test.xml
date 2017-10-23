@@ -51,4 +51,10 @@
         android:layout_height="wrap_content"
         android:text="进度条"
         />
+    <Button
+        android:id="@+id/smoothdelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="滑动删除"
+        />
 </LinearLayout>

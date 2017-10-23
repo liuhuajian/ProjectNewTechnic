@@ -29,7 +29,7 @@
         android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="ProjectNewTechnic"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -65,6 +65,8 @@
             android:value="10625b4fd8fda9ba1937c9b21a938199"/>
 
         <activity android:name=".progressbar.ProgressbarActivity">
+        </activity>
+        <activity android:name=".smoothdelete.SmoothDeleteActivity">
         </activity>
     </application>
 

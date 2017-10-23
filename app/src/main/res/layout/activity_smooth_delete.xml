@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="messi.lhj.com.projectnewtechnic.smoothdelete.SmoothDeleteActivity">
+
+    <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+        android:id="@+id/swipe_menu_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView>
+</android.support.constraint.ConstraintLayout>
