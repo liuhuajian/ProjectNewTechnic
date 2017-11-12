@@ -16,6 +16,7 @@ import messi.lhj.com.projectnewtechnic.headAndfoot.RecyclerViewActivity;
 import messi.lhj.com.projectnewtechnic.progressbar.ProgressbarActivity;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MainActivity;
 import messi.lhj.com.projectnewtechnic.smoothdelete.SmoothDeleteActivity;
+import messi.lhj.com.projectnewtechnic.sonic.SonicActivity;
 import messi.lhj.com.projectnewtechnic.util.CheckPermissionUtils;
 import messi.lhj.com.projectnewtechnic.util.Logger;
 import messi.lhj.com.projectnewtechnic.zxing.CaptureActivity;
@@ -39,6 +40,8 @@ public class TestActivity extends AppCompatActivity {
     Button progressbar;
     @BindView(R.id.smoothdelete)
     Button smoothdelete;
+    @BindView(R.id.smalltest)
+    Button smalltest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,7 @@ public class TestActivity extends AppCompatActivity {
         gaodebtn.setOnClickListener(onClickListener);
         progressbar.setOnClickListener(onClickListener);
         smoothdelete.setOnClickListener(onClickListener);
+        smalltest.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -93,6 +97,10 @@ public class TestActivity extends AppCompatActivity {
                     break;
                 case R.id.smoothdelete:
                     intent = new Intent(TestActivity.this, SmoothDeleteActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.smalltest:
+                    intent = new Intent(TestActivity.this, SonicActivity.class);
                     startActivity(intent);
                     break;
             }

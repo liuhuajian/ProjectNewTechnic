@@ -68,6 +68,12 @@
         </activity>
         <activity android:name=".smoothdelete.SmoothDeleteActivity">
         </activity>
+        <activity android:name=".SmallTest">
+        </activity>
+        <activity android:name=".sonic.SonicActivity">
+        </activity>
+        <activity android:name=".sonic.WebViewActivity">
+        </activity>
     </application>
 
 </manifest>

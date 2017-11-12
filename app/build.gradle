@@ -68,5 +68,6 @@ dependencies {
     compile 'com.amap.api:search:latest.integration'
     compile 'com.yanzhenjie:recyclerview-swipe:1.1.3'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.tencent.sonic:sdk:2.0.0-alpha'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

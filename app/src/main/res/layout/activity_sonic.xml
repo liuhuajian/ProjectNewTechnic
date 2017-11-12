@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="messi.lhj.com.projectnewtechnic.sonic.SonicActivity">
+
+    <Button
+        android:onClick="btnNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="正常"
+        />
+    <Button
+        android:onClick="btnSonic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sonic"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>
