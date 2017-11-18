@@ -39,9 +39,6 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     private void initSonic() {
-        if (!SonicEngine.isGetInstanceAllowed()) {
-            SonicEngine.createInstance(new SonicRuntimeImpl(getApplication()), new SonicConfig.Builder().build());
-        }
 
         sonicSessionClient = null;
 

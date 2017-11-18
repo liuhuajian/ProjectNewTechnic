@@ -37,4 +37,7 @@ public class Constants {
                     "[\"31.128461\",\"121.412734\"],"+
                     "[\"31.169578\",\"121.388036\"]"+
                     "]";
+    public static final String[] packages = {"com.tencent.android.qqdownloader","com.qihoo.appstore",
+            "com.baidu.appsearch","com.xiaomi.market","com.huawei.appmarket","com.wandoujia.phoenix2"};
+    public static final String[] channels = {"yingyongbao","qihoo","baidu","xiaomi","huawei","wandoujia"};
 }

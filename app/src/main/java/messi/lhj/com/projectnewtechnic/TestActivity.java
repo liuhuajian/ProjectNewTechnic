@@ -1,16 +1,28 @@
 package messi.lhj.com.projectnewtechnic;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.umeng.analytics.AnalyticsConfig;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
+import messi.lhj.com.projectnewtechnic.common.Constants;
 import messi.lhj.com.projectnewtechnic.gaode.GaodeActivity;
 import messi.lhj.com.projectnewtechnic.headAndfoot.RecyclerViewActivity;
 import messi.lhj.com.projectnewtechnic.progressbar.ProgressbarActivity;
@@ -19,6 +31,7 @@ import messi.lhj.com.projectnewtechnic.smoothdelete.SmoothDeleteActivity;
 import messi.lhj.com.projectnewtechnic.sonic.SonicActivity;
 import messi.lhj.com.projectnewtechnic.util.CheckPermissionUtils;
 import messi.lhj.com.projectnewtechnic.util.Logger;
+import messi.lhj.com.projectnewtechnic.util.Utils;
 import messi.lhj.com.projectnewtechnic.zxing.CaptureActivity;
 
 public class TestActivity extends AppCompatActivity {
@@ -42,6 +55,8 @@ public class TestActivity extends AppCompatActivity {
     Button smoothdelete;
     @BindView(R.id.smalltest)
     Button smalltest;
+    @BindView(R.id.getappstore)
+    Button getappstore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +77,7 @@ public class TestActivity extends AppCompatActivity {
         progressbar.setOnClickListener(onClickListener);
         smoothdelete.setOnClickListener(onClickListener);
         smalltest.setOnClickListener(onClickListener);
+        getappstore.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -103,9 +119,41 @@ public class TestActivity extends AppCompatActivity {
                     intent = new Intent(TestActivity.this, SonicActivity.class);
                     startActivity(intent);
                     break;
+                case R.id.getappstore:
+                    try {
+                        getAppStore();
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    break;
             }
         }
     };
+
+    private void getAppStore() throws PackageManager.NameNotFoundException {
+
+        ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+        String currChannel = applicationInfo.metaData.getString("UMENG_CHANNEL");
+//        String sss = Constants.channels[i];
+        Logger.d("getAppStore-->"+currChannel);
+        if (Utils.getAllInstallApp(this,currChannel)){
+            jumpToStore(currChannel);
+        }else {
+            for (int i=0;i<Constants.channels.length;i++){
+                String channel = Constants.channels[i];
+                if (channel.equals(channel))
+                    continue;
+                if (Utils.getAllInstallApp(this,channel)){
+                    jumpToStore(currChannel);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void jumpToStore(String channel) {
+        String packageName = Constants.packages[Arrays.asList(Constants.channels).indexOf(channel)];
+    }
 
 
     private void initPermission() {

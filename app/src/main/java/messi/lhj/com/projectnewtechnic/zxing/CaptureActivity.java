@@ -78,6 +78,7 @@ public class CaptureActivity extends Activity implements SurfaceHolder.Callback,
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Logger.d("onCreate");
         setContentView(R.layout.activity_qrcode_capture_layout);
 
         CameraManager.init(this);
@@ -97,11 +98,13 @@ public class CaptureActivity extends Activity implements SurfaceHolder.Callback,
 
 
         inactivityTimer = new InactivityTimer(this);
+        Logger.d("onCreate");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        Logger.d("onCreate");
         // 初始化相机画布
         SurfaceView surfaceView = (SurfaceView) findViewById(R.id.preview_view);
         SurfaceHolder surfaceHolder = surfaceView.getHolder();
@@ -123,7 +126,7 @@ public class CaptureActivity extends Activity implements SurfaceHolder.Callback,
         initBeepSound();
         // 振动
         vibrate = true;
-
+        Logger.d("onCreate");
     }
 
     @Override

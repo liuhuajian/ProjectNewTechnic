@@ -14,6 +14,36 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [umeng_key  : "5604f8b767e58e4847003130"]
+
+        }
+        debug{
+            manifestPlaceholders = [umeng_key  : "5604f8b767e58e4847003130"]
+        }
+    }
+
+    //multiple app store download
+    productFlavors {
+        yingyongbao {}
+        qihoo{}
+        baidu{}
+        xiaomi{}
+        huawei{}
+        wandoujia{}
+    }
+
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    applicationVariants.all { variant ->
+
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = outputFile.name.replace(".apk", "-${defaultConfig.versionName}.apk")
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
         }
     }
 
@@ -32,7 +62,7 @@ android {
             storePassword "371531"
             keyAlias "technic"
             keyPassword "371531"
-            v2SigningEnabled false
+            v2SigningEnabled true
         }
     }
 }
@@ -41,15 +71,14 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/universal-image-loader-1.9.5.jar')
     compile files('libs/zxing.jar')
-
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     //3D地图so及jar
     //2D地图
-//    compile 'com.amap.api:map2d:latest.integration'
+    //    compile 'com.amap.api:map2d:latest.integration'
     //定位功能
     //搜索功能
     //导航
-//    compile 'com.amap.api:navi-3dmap:latest.integration'
+    //    compile 'com.amap.api:navi-3dmap:latest.integration'
     //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'in.srain.cube:ptr-load-more:1.0.6'
@@ -70,4 +99,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.tencent.sonic:sdk:2.0.0-alpha'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile files('libs/umeng-analytics-7.4.0.jar')
+    compile files('libs/umeng-common-1.4.0.jar')
 }
