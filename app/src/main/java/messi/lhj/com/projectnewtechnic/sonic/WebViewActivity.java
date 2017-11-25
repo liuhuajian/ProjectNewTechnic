@@ -40,8 +40,6 @@ public class WebViewActivity extends AppCompatActivity {
 
     private void initSonic() {
 
-        sonicSessionClient = null;
-
         // step 2: Create SonicSession
         sonicSession = SonicEngine.getInstance().createSession(base_url,  new SonicSessionConfig.Builder().build());
         if (null != sonicSession) {

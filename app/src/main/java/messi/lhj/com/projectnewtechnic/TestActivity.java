@@ -1,7 +1,7 @@
 package messi.lhj.com.projectnewtechnic;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.app.Application;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -10,17 +10,12 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.umeng.analytics.AnalyticsConfig;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import messi.lhj.com.projectnewtechnic.anim.AnimActivity;
 import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
 import messi.lhj.com.projectnewtechnic.common.Constants;
 import messi.lhj.com.projectnewtechnic.gaode.GaodeActivity;
@@ -57,6 +52,8 @@ public class TestActivity extends AppCompatActivity {
     Button smalltest;
     @BindView(R.id.getappstore)
     Button getappstore;
+    @BindView(R.id.animTest)
+    Button animTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +75,7 @@ public class TestActivity extends AppCompatActivity {
         smoothdelete.setOnClickListener(onClickListener);
         smalltest.setOnClickListener(onClickListener);
         getappstore.setOnClickListener(onClickListener);
+        animTest.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -126,6 +124,10 @@ public class TestActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     break;
+                case R.id.animTest:
+                    intent = new Intent(TestActivity.this, AnimActivity.class);
+                    startActivity(intent);
+                    break;
             }
         }
     };
@@ -135,20 +137,22 @@ public class TestActivity extends AppCompatActivity {
         ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
         String currChannel = applicationInfo.metaData.getString("UMENG_CHANNEL");
 //        String sss = Constants.channels[i];
-        Logger.d("getAppStore-->"+currChannel);
-        if (Utils.getAllInstallApp(this,currChannel)){
+        Logger.d("getAppStore-->" + currChannel);
+        if (Utils.getAllInstallApp(this, currChannel)) {
             jumpToStore(currChannel);
-        }else {
-            for (int i=0;i<Constants.channels.length;i++){
+            return;
+        } else {
+            for (int i = 0; i < Constants.channels.length; i++) {
                 String channel = Constants.channels[i];
                 if (channel.equals(channel))
                     continue;
-                if (Utils.getAllInstallApp(this,channel)){
+                if (Utils.getAllInstallApp(this, channel)) {
                     jumpToStore(currChannel);
-                    break;
+                    return;
                 }
             }
         }
+        // TODO: 2017/11/19 未找到应用商店
     }
 
     private void jumpToStore(String channel) {

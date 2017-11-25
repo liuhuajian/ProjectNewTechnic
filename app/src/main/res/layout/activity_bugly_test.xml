@@ -10,6 +10,12 @@
 
 
     <Button
+        android:id="@+id/animTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="animTest"
+        />
+    <Button
         android:id="@+id/getappstore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
