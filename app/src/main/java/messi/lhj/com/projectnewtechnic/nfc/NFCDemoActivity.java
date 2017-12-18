@@ -1,7 +1,6 @@
 package messi.lhj.com.projectnewtechnic.nfc;
 
 import android.app.PendingIntent;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.FormatException;
@@ -16,16 +15,11 @@ import android.nfc.tech.NfcA;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.provider.Settings;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.text.DateFormat;
@@ -37,7 +31,6 @@ import java.util.Locale;
 
 import messi.lhj.com.projectnewtechnic.R;
 import messi.lhj.com.projectnewtechnic.nfc.record.ParsedNdefRecord;
-import messi.lhj.com.projectnewtechnic.nfc.record.TextRecord;
 import messi.lhj.com.projectnewtechnic.nfc.record.UriRecord;
 import messi.lhj.com.projectnewtechnic.util.Logger;
 
@@ -69,11 +62,13 @@ public class NFCDemoActivity extends AppCompatActivity {
         //判断设备是否支持Nfc
         if (nfcAdapter ==null){
             Logger.d("设备不支持NFC！");
+            Toast.makeText(this, "设备不支持NFC！", Toast.LENGTH_SHORT).show();
             isNfcSupport = false;
             return;
         }
         if (!nfcAdapter.isEnabled()){
             Logger.d("请在系统设置中先启用NFC功能！");
+            Toast.makeText(this, "请在系统设置中先启用NFC功能！", Toast.LENGTH_SHORT).show();
             isNfcSupport = false;
             return;
         }
@@ -87,13 +82,6 @@ public class NFCDemoActivity extends AppCompatActivity {
             // 开始监听NFC设备是否连接，如果连接就发pi意图
             nfcAdapter.enableForegroundDispatch(this,pendingIntent,null, null);
             nfcAdapter.enableForegroundNdefPush(this, mNdefPushMessage);
-        }
-
-        if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(this.getIntent()
-                .getAction())) {
-            // 注意这个if中的代码几乎不会进来，因为刚刚在上一行代码开启了监听NFC连接，下一行代码马上就收到了NFC连接的intent，这种几率很小
-            // 处理该intent
-            processIntent(this.getIntent());
         }
     }
 
@@ -257,11 +245,11 @@ public class NFCDemoActivity extends AppCompatActivity {
                 mTags.add(tag);
             }
             // Setup the views
-            buildTagViews(msgs);
+            getContent(msgs);
         }
     }
 
-    void buildTagViews(NdefMessage[] msgs) {
+    void getContent(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0) {
             return;
         }
@@ -271,12 +259,13 @@ public class NFCDemoActivity extends AppCompatActivity {
         Date now = new Date();
         List<ParsedNdefRecord> records = NdefMessageParser.parse(msgs[0]);
         final int size = records.size();
-        Logger.d("buildTagViews-->"+TIME_FORMAT.format(now));
+        Logger.d("getContent-->"+TIME_FORMAT.format(now));
         for (int i = 0; i < size; i++) {
             ParsedNdefRecord parsedNdefRecord = records.get(i);
             if (parsedNdefRecord instanceof UriRecord){
                 UriRecord textRecord = (UriRecord) parsedNdefRecord;
                 Logger.d("textRecord-->"+textRecord.getUri().toString());
+                Toast.makeText(this,textRecord.getUri().toString(),Toast.LENGTH_SHORT).show();
             }
 
         }
