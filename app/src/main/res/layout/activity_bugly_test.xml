@@ -10,6 +10,12 @@
 
 
     <Button
+        android:id="@+id/nfctest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NFCDemo"
+        />
+    <Button
         android:id="@+id/animTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
