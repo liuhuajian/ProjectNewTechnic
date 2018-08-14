@@ -15,6 +15,7 @@ import java.util.Arrays;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import messi.lhj.com.projectnewtechnic.anim.AnimActivity;
+import messi.lhj.com.projectnewtechnic.chart.LineChartActivity;
 import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
 import messi.lhj.com.projectnewtechnic.common.Constants;
 import messi.lhj.com.projectnewtechnic.gaode.GaodeActivity;
@@ -56,6 +57,8 @@ public class TestActivity extends AppCompatActivity {
     Button animTest;
     @BindView(R.id.nfctest)
     Button nfctest;
+    @BindView(R.id.lineChart)
+    Button lineChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +82,7 @@ public class TestActivity extends AppCompatActivity {
         getappstore.setOnClickListener(onClickListener);
         animTest.setOnClickListener(onClickListener);
         nfctest.setOnClickListener(onClickListener);
+        lineChart.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -133,6 +137,10 @@ public class TestActivity extends AppCompatActivity {
                     break;
                 case R.id.nfctest:
                     intent = new Intent(TestActivity.this, NFCDemoActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.lineChart:
+                    intent = new Intent(TestActivity.this, LineChartActivity.class);
                     startActivity(intent);
                     break;
             }
