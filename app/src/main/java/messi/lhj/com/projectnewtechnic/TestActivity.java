@@ -20,6 +20,7 @@ import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
 import messi.lhj.com.projectnewtechnic.common.Constants;
 import messi.lhj.com.projectnewtechnic.gaode.GaodeActivity;
 import messi.lhj.com.projectnewtechnic.headAndfoot.RecyclerViewActivity;
+import messi.lhj.com.projectnewtechnic.maopao.MaoPaoActivity;
 import messi.lhj.com.projectnewtechnic.nfc.NFCDemoActivity;
 import messi.lhj.com.projectnewtechnic.progressbar.ProgressbarActivity;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MainActivity;
@@ -59,6 +60,8 @@ public class TestActivity extends AppCompatActivity {
     Button nfctest;
     @BindView(R.id.lineChart)
     Button lineChart;
+    @BindView(R.id.bottleMaoPao)
+    Button bottleMaoPao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +86,7 @@ public class TestActivity extends AppCompatActivity {
         animTest.setOnClickListener(onClickListener);
         nfctest.setOnClickListener(onClickListener);
         lineChart.setOnClickListener(onClickListener);
+        bottleMaoPao.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -141,6 +145,10 @@ public class TestActivity extends AppCompatActivity {
                     break;
                 case R.id.lineChart:
                     intent = new Intent(TestActivity.this, LineChartActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.bottleMaoPao:
+                    intent = new Intent(TestActivity.this, MaoPaoActivity.class);
                     startActivity(intent);
                     break;
             }
