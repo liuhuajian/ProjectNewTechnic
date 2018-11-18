@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <View
+        android:visibility="gone"
+        android:id="@+id/view_status"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <com.project.common.core.view.TitleView
+        android:id="@+id/title_base"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hasBackBtn="true"
+        app:hasRightBtn="false"/>
+
+    <include
+        android:id="@+id/top_line"
+        layout="@layout/view_line_layout"/>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

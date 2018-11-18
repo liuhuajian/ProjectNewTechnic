@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/back_layout"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerVertical="true"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/bg_press_selector_white" >
+       
+
+        <ImageView
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="15dip"
+            android:background="@null"
+            android:focusable="false"
+            android:clickable="false"
+            android:src="@mipmap/icon_back_btn" />
+
+        <Button
+            android:id="@+id/btn_left"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:focusable="false"
+            android:text=""
+            android:background="@drawable/bg_press_selector_white"
+            android:padding="15dip" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/title_tv"
+        android:layout_centerInParent="true"
+        android:text=""
+        android:maxEms="9" />
+
+    <RelativeLayout
+        android:id="@+id/right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true" >
+
+        <TextView
+            android:id="@+id/btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/padding15"
+            android:paddingLeft="@dimen/padding15"
+            android:visibility="visible"
+            android:gravity="center"
+            android:textColor="@color/text_color_333333"
+            android:background="@drawable/bg_press_selector_white"/>
+
+        <ImageButton
+            android:id="@+id/ib_btn_right_toleft"
+            android:layout_width="26dip"
+            android:layout_height="26dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_toLeftOf="@id/btn_right"
+            android:background="@null" />
+    </RelativeLayout>
+
+</RelativeLayout>

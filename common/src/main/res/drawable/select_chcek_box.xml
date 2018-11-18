@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <layer-list>
+            <item>
+                <shape android:dither="true" android:shape="rectangle">
+                    <solid android:color="@color/white" />
+                    <stroke android:width="0.5dp" android:dashGap="@dimen/padding1" android:color="@color/line" android:dashWidth="@dimen/padding1" />
+                </shape>
+            </item>
+
+            <item android:drawable="@drawable/health_checked"></item>
+        </layer-list>
+    </item>
+    <item android:state_selected="false">
+        <layer-list>
+            <item>
+                <shape android:dither="true" android:shape="rectangle">
+                    <solid android:color="@color/white" />
+                    <stroke android:width="0.5dp" android:dashGap="@dimen/padding1" android:color="@color/line" android:dashWidth="@dimen/padding1" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

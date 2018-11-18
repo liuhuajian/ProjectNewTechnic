@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- 霓虹灯 -->
+    <color name="color1">#330000</color>
+    <color name="color2">#550000</color>
+    <color name="color3">#770000</color>
+    <color name="color4">#990000</color>
+    <color name="color5">#bb0000</color>
+    <color name="color6">#dd0000</color>
+    <color name="color7">#ff0000</color>
+    <color name="background">#F5F5F5</color>
+    <color name="bg_def_img">#e0000000</color>
+    <color name="white">#ffffff</color>
+    <color name="line">#dddddd</color>
+    <!--<color name="press_color">#F1EAEA</color>-->
+    <color name="press_color">#F5F5F5</color>
+    <color name="selector_press_color">#f0f0f0</color>
+    <color name="text_gray">#999999</color>
+    <color name="black">#000000</color>
+    <color name="gray">#ebebeb</color>
+    <color name="second_text_gray">#838899</color>
+    <color name="third_gray">#cfcfcf</color>
+    <color name="tv_color_more">#9c9c9c</color>
+
+    <color name="theme_body">#cc22292c</color>
+    <color name="status_bar">#303135</color>
+    <color name="top_bar">#59B82C</color>
+    <color name="theme_color">#5AB92B</color>\
+    <color name="per70_theme_color">#B35AB92B</color>
+    <color name="green">#1EDE28</color>
+    <color name="transparent">#00000000</color>
+    <color name="half_transparent_white">#7affffff</color>
+    <color name="half_transparent_black">#7a000000</color>
+    <color name="third_percent_transparent_black">#39000000</color>
+    <color name="red">#ff0000</color>
+    <color name="yellow">#FF8400</color>
+    <color name="yellow_ffb313">#FFB313</color>
+    <color name="orange">#FF5C00</color>
+    <color name="new_user_tag">#25C5A4</color>
+    <!--背景颜色-->
+    <color name="backgroud_color">#F5F5F5</color>
+
+    <!--字体颜色-->
+    <!--主题字体色号-->
+    <color name="text_color_theme">#5AB92B</color>
+    <color name="text_color_666666">#666666</color>
+    <color name="text_color_333333">#333333</color>
+    <color name="text_color_000000">#000000</color>
+    <color name="text_color_999999">#999999</color>
+    <color name="text_color_cccccc">#cccccc</color>
+    <color name="text_hall_mall_ff1515">#FF1515</color>
+    <!-- 蓝色 -->
+    <color name="select_btn">#1685FE</color>
+    <color name="color_brown_73350c">#73350C</color>
+    <color name="color_bank_bg">#4AD5D9</color>
+    <color name="chat_item_content">#4a4a4a</color>
+</resources>

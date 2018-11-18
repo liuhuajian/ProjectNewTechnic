@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- titlebar 标题栏 -->
+    <declare-styleable name="TitleView">
+        <attr name="titleText" format="string" />
+        <attr name="leftBtnText" format="string" />
+        <attr name="rightBtnText" format="string" />
+        <attr name="leftBtnTextSize" format="dimension" />
+        <attr name="custom_background" format="color" />
+        <attr name="custom_text_color" format="color" />
+        <attr name="hasBackBtn" format="boolean" />
+        <attr name="hasLeftBtn" format="boolean" />
+        <attr name="hasRightBtn" format="boolean" />
+        <attr name="RightBtnIcon" format="reference" />
+        <attr name="RightBtnToLeftIcon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="color_blue">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="FlyBanner">
+        <attr name="points_visibility" format="boolean" />
+        <attr name="points_position" format="enum">
+            <enum name="CENTER" value="0" />
+            <enum name="LEFT" value="1" />
+            <enum name="RIGHT" value="2" />
+        </attr>
+        <attr name="points_container_background" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="PageIndicatorView">
+        <attr name="piv_orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+            <!--indicator-->
+        </attr>
+        <attr name="piv_viewPager" format="reference" />
+        <attr name="piv_select" format="integer" />
+        <attr name="piv_count" format="integer" />
+        <attr name="piv_dynamicCount" format="boolean" />
+        <attr name="piv_radius" format="dimension" />
+        <attr name="piv_padding" format="dimension" />
+        <attr name="piv_strokeWidth" format="dimension" />
+        <attr name="piv_scaleFactor" format="float" />
+        <attr name="piv_autoVisibility" format="boolean" />
+        <attr name="piv_unselectedColor" format="color" />
+        <attr name="piv_selectedColor" format="color" />
+        <attr name="piv_interactiveAnimation" format="boolean" />
+        <attr name="piv_animationDuration" format="integer" />
+        <attr name="piv_animationType">
+            <enum name="none" value="0" />
+            <enum name="color" value="1" />
+            <enum name="scale" value="2" />
+            <enum name="worm" value="3" />
+            <enum name="slide" value="4" />
+            <enum name="fill" value="5" />
+            <enum name="thinWorm" value="6" />
+            <enum name="drop" value="7" />
+            <enum name="swap" value="8" />
+        </attr>
+        <attr name="piv_rtl_mode">
+            <enum name="on" value="0" />
+            <enum name="off" value="1" />
+            <enum name="auto" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 自定义布局item_layout属性 -->
+    <declare-styleable name="ItemLayout">
+        <attr name="hasArrow" format="boolean" />
+        <attr name="rightArrowSrc" format="reference" />
+        <attr name="ItemIcon" format="reference" />
+        <attr name="LeftText" format="string|reference" />
+        <attr name="LeftTextColor" format="color" />
+        <attr name="LeftTextSize" format="dimension" />
+        <attr name="SecondNameText" format="string|reference" />
+        <attr name="SecondNameTextColor" format="color" />
+        <attr name="SecondNameTextSize" format="dimension" />
+        <attr name="TextName" format="string" />
+        <attr name="RightText" format="string" />
+        <attr name="RightTextColor" format="color" />
+        <attr name="RightTextmarginRight" format="dimension" />
+        <attr name="RightTextBgColor" format="reference|color" />
+        <attr name="RightTextSrc" format="reference|color" />
+        <attr name="RightTextImage" format="reference" />
+        <attr name="RightTextSize" format="dimension" />
+    </declare-styleable>
+
+    <!--下拉控件-->
+    <style name="PullRefreshLayout">
+        <item name="qmui_target_init_offset">0dp</item>
+        <item name="qmui_target_refresh_offset">72dp</item>
+        <item name="qmui_auto_calculate_refresh_init_offset">true</item>
+        <item name="qmui_auto_calculate_refresh_end_offset">true</item>
+    </style>
+
+    <declare-styleable name="PullRefreshLayout">
+        <attr name="qmui_refresh_init_offset" format="dimension" />
+        <attr name="qmui_refresh_end_offset" format="dimension" />
+        <attr name="qmui_target_init_offset" format="dimension" />
+        <attr name="qmui_target_refresh_offset" format="dimension" />
+        <attr name="qmui_auto_calculate_refresh_init_offset" format="boolean" />
+        <attr name="qmui_auto_calculate_refresh_end_offset" format="boolean" />
+        <attr name="qmui_equal_target_refresh_offset_to_refresh_view_height" format="boolean" />
+    </declare-styleable>
+
+    <!--圆角view-->
+    <declare-styleable name="RadiusImageView">
+        <attr name="qmui_border_width" format="dimension" />
+        <attr name="qmui_border_color" format="color" />
+        <attr name="qmui_selected_mask_color" format="color" />
+        <attr name="qmui_selected_border_color" format="color" />
+        <attr name="qmui_selected_border_width" format="dimension" />
+        <attr name="qmui_corner_radius" format="dimension" />
+        <attr name="qmui_is_oval" format="boolean" />
+        <attr name="qmui_is_circle" format="boolean" />
+        <attr name="qmui_is_touch_select_mode_enabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="BubbleScroller">
+        <attr name="bubbleScroller_textSize" format="reference" />
+        <attr name="bubbleScroller_textColor" format="reference" />
+        <attr name="bubbleScroller_highlightColor" format="reference" />
+        <attr name="bubbleScroller_highlightSize" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="PasswordInput">
+        <!--获得焦点时的颜色-->
+        <attr name="focusedColor" format="color" />
+        <!--未获得焦点时的颜色-->
+        <attr name="notFocusedColor" format="color" />
+        <!--背景色-->
+        <attr name="backgroundColor" format="color" />
+        <!--字符方块的数量-->
+        <attr name="boxCount" format="integer" />
+        <!--获得焦点时颜色是否改变-->
+        <attr name="focusColorChangeEnable" format="boolean" />
+        <!--圆点半径-->
+        <attr name="dotRaduis" format="dimension" />
+    </declare-styleable>
+</resources>

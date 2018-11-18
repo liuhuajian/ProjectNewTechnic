@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding10"
+        android:layout_marginRight="@dimen/padding10"
+        android:background="@drawable/bg_shape_white_coners"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_select_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding10"
+            android:layout_marginLeft="@dimen/padding10"
+            android:layout_marginRight="@dimen/padding10"
+            android:paddingTop="@dimen/padding17"
+            android:text="从手机相册选择"
+            android:textColor="@color/text_color_999999"
+            android:textSize="@dimen/textsize13" />
+
+        <include layout="@layout/view_line_layout" />
+
+        <TextView
+            android:id="@+id/tv_take_photo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:text="拍照"
+            android:gravity="center"
+            android:textColor="@color/select_btn"
+            android:layout_gravity="center"
+            android:textSize="@dimen/text_big_size" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/padding10"
+        android:gravity="center"
+        android:background="@drawable/bg_shape_white_coners"
+        android:text="@string/btn_cancel"
+        android:textColor="@color/text_color_999999"
+        android:textSize="@dimen/text_big_size" />
+
+</LinearLayout>

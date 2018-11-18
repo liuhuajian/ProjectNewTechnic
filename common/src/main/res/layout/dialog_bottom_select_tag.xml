@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_tv_height_44dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/size_margin_left_right"
+        android:paddingRight="@dimen/size_margin_left_right">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/text_color_999999" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="选择职业"
+            android:textColor="@color/text_color_000000" />
+
+        <TextView
+            android:id="@+id/tv_comfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/btn_sure"
+            android:textColor="@color/text_color_333333" />
+    </LinearLayout>
+
+    <include layout="@layout/view_line_layout" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_dialog_select"
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:paddingLeft="@dimen/padding30"
+        android:paddingRight="@dimen/padding30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

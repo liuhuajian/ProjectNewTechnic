@@ -8,6 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/FastBleLib" />
+            <option value="$PROJECT_DIR$/MyLibrary" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

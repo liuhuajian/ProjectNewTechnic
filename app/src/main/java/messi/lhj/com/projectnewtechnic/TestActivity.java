@@ -16,6 +16,7 @@ import java.util.Arrays;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import messi.lhj.com.projectnewtechnic.anim.AnimActivity;
+import messi.lhj.com.projectnewtechnic.bean.User;
 import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
 import messi.lhj.com.projectnewtechnic.common.Constants;
 import messi.lhj.com.projectnewtechnic.gaode.GaodeActivity;
@@ -25,6 +26,7 @@ import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MainActivity;
 import messi.lhj.com.projectnewtechnic.smoothdelete.SmoothDeleteActivity;
 import messi.lhj.com.projectnewtechnic.sonic.SonicActivity;
 import messi.lhj.com.projectnewtechnic.util.CheckPermissionUtils;
+import messi.lhj.com.projectnewtechnic.util.GenericData;
 import messi.lhj.com.projectnewtechnic.util.Logger;
 import messi.lhj.com.projectnewtechnic.util.Utils;
 import messi.lhj.com.projectnewtechnic.zxing.CaptureActivity;
@@ -62,6 +64,8 @@ public class TestActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initPermission();
         initView();
+
+        GenericData<User> userGenericData = new GenericData<>();
     }
 
     private void initView() {

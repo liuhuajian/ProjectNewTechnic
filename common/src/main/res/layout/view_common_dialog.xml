@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/padding5">
+
+    <RelativeLayout
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/common_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding20"
+            android:text="确认修改"
+            android:textColor="@color/text_color_000000"
+            android:textSize="@dimen/text_default_size" />
+
+        <FrameLayout
+            android:id="@+id/common_content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@id/common_dialog_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding25">
+
+        </FrameLayout>
+
+        <View
+            android:id="@+id/common_dialog_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_default"
+            android:layout_below="@id/common_content_container"
+            android:layout_marginTop="@dimen/padding20"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_tv_height_44dp"
+            android:layout_below="@id/common_dialog_line"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/common_dialog_positive"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定"
+                android:background="@drawable/bg_press_selector_white"
+                android:textColor="@color/theme_color"
+                android:textSize="@dimen/text_default_size" />
+            <View
+                android:id="@+id/common_dialog_line2"
+                android:layout_width="@dimen/line_height_default"
+                android:layout_height="match_parent"
+                android:background="@color/line" />
+            <TextView
+                android:id="@+id/common_dialog_negative"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:background="@drawable/bg_press_selector_white"
+                android:textColor="@color/text_color_666666"
+                android:textSize="@dimen/text_default_size" />
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

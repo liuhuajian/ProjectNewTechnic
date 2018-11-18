@@ -5,6 +5,8 @@ package messi.lhj.com.projectnewtechnic.http;
 //import com.wdb007.app.wordbang.bean.BookShelf;
 //import com.wdb007.app.wordbang.bean.User;
 
+import android.graphics.Movie;
+
 import messi.lhj.com.projectnewtechnic.bean.User;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -46,6 +48,6 @@ public interface ApiService {
 //    @GET("wdb007/user/getBorrowList")
 //    Observable<ResponseIterms<List<BookList>>> getBookList(@Query("userid") String userid, @Query("usertoken") String userToken,
 //                                                           @Query("pagesize") String pageSize, @Query("pageno") String pageNo);
-//    @GET("top250")
-//    Observable<Movie> getMovie(@Query("start") String start, @Query("count") String count);
+    @GET("top250")
+    Observable<Movie> getMovie(@Query("start") String start, @Query("count") String count);
 }

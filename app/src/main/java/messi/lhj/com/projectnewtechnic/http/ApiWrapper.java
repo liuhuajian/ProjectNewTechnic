@@ -6,6 +6,8 @@ package messi.lhj.com.projectnewtechnic.http;
 //import com.wdb007.app.wordbang.bean.BookShelf;
 //import com.wdb007.app.wordbang.bean.User;
 
+import android.graphics.Movie;
+
 import messi.lhj.com.projectnewtechnic.bean.User;
 import rx.Observable;
 
@@ -69,9 +71,9 @@ public class ApiWrapper {
 //                .compose(retrofitInstance.<List<BookList>>applySchedulersItems());
 //    }
 
-//    public Observable<Movie> getMovie(String start, String count){
-//        return apiService.getMovie(start,count);
-//    }
+    public Observable<Movie> getMovie(String start, String count){
+        return apiService.getMovie(start,count);
+    }
 //    /**
 //     * 获取最新接口
 //     *
