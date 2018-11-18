@@ -10,6 +10,26 @@
 
 
     <Button
+        android:id="@+id/bottleMaoPao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="瓶子气泡"
+        />
+
+    <Button
+        android:id="@+id/lineChart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lineChart"
+        />
+
+    <Button
+        android:id="@+id/nfctest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NFCDemo"
+        />
+    <Button
         android:id="@+id/animTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

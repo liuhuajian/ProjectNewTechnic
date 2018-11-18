@@ -25,6 +25,11 @@
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
+    <!-- NFC权限声明 -->
+    <uses-permission android:name="android.permission.NFC"/>
+
+    <uses-feature android:name="android.hardware.nfc"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -107,6 +112,18 @@
         <activity android:name=".subscrthing.SubTwoActivity">
         </activity>
         <activity android:name=".ble.BleActivity">
+        <activity android:name=".nfc.NFCDemoActivity">
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".chart.LineChartActivity">
+        </activity>
+        <activity android:name=".maopao.MaoPaoActivity">
         </activity>
     </application>
 

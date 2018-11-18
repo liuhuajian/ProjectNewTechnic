@@ -1,6 +1,5 @@
 package messi.lhj.com.projectnewtechnic;
 
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -17,10 +16,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import messi.lhj.com.projectnewtechnic.anim.AnimActivity;
 import messi.lhj.com.projectnewtechnic.bean.User;
+import messi.lhj.com.projectnewtechnic.chart.LineChartActivity;
 import messi.lhj.com.projectnewtechnic.circlehead.CircleHeadActivity;
 import messi.lhj.com.projectnewtechnic.common.Constants;
 import messi.lhj.com.projectnewtechnic.gaode.GaodeActivity;
 import messi.lhj.com.projectnewtechnic.headAndfoot.RecyclerViewActivity;
+import messi.lhj.com.projectnewtechnic.maopao.MaoPaoActivity;
+import messi.lhj.com.projectnewtechnic.nfc.NFCDemoActivity;
 import messi.lhj.com.projectnewtechnic.progressbar.ProgressbarActivity;
 import messi.lhj.com.projectnewtechnic.refreshAndreloadmore.MainActivity;
 import messi.lhj.com.projectnewtechnic.smoothdelete.SmoothDeleteActivity;
@@ -56,6 +58,12 @@ public class TestActivity extends AppCompatActivity {
     Button getappstore;
     @BindView(R.id.animTest)
     Button animTest;
+    @BindView(R.id.nfctest)
+    Button nfctest;
+    @BindView(R.id.lineChart)
+    Button lineChart;
+    @BindView(R.id.bottleMaoPao)
+    Button bottleMaoPao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +88,9 @@ public class TestActivity extends AppCompatActivity {
         smalltest.setOnClickListener(onClickListener);
         getappstore.setOnClickListener(onClickListener);
         animTest.setOnClickListener(onClickListener);
+        nfctest.setOnClickListener(onClickListener);
+        lineChart.setOnClickListener(onClickListener);
+        bottleMaoPao.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -130,6 +141,18 @@ public class TestActivity extends AppCompatActivity {
                     break;
                 case R.id.animTest:
                     intent = new Intent(TestActivity.this, AnimActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.nfctest:
+                    intent = new Intent(TestActivity.this, NFCDemoActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.lineChart:
+                    intent = new Intent(TestActivity.this, LineChartActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.bottleMaoPao:
+                    intent = new Intent(TestActivity.this, MaoPaoActivity.class);
                     startActivity(intent);
                     break;
             }

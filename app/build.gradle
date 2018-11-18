@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         flavorDimensions "versionCode"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -49,23 +50,23 @@ android {
     }
 
     //siging config
-    signingConfigs {
-        debug {
-            storeFile file("/Users/messi/project/android/github/ProjectNewTechnic/new_technic.jks")
-            storePassword "371531"
-            keyAlias "technic"
-            keyPassword "371531"
-            v2SigningEnabled false
-        }
-
-        release {
-            storeFile file("/Users/messi/project/android/github/ProjectNewTechnic/new_technic.jks")
-            storePassword "371531"
-            keyAlias "technic"
-            keyPassword "371531"
-            v2SigningEnabled true
-        }
-    }
+//    signingConfigs {
+//        debug {
+//            storeFile file("/Users/messi/project/android/github/ProjectNewTechnic/new_technic.jks")
+//            storePassword "371531"
+//            keyAlias "technic"
+//            keyPassword "371531"
+//            v2SigningEnabled false
+//        }
+//
+//        release {
+//            storeFile file("/Users/messi/project/android/github/ProjectNewTechnic/new_technic.jks")
+//            storePassword "371531"
+//            keyAlias "technic"
+//            keyPassword "371531"
+//            v2SigningEnabled true
+//        }
+//    }
 }
 
 dependencies {
@@ -84,6 +85,7 @@ dependencies {
     compile files('libs/umeng-analytics-7.4.0.jar')
     compile files('libs/umeng-common-1.4.0.jar')
     //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile files('libs/guavalib.jar')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'in.srain.cube:ptr-load-more:1.0.6'
     compile 'com.android.support:recyclerview-v7:25.3.1'
@@ -100,7 +102,7 @@ dependencies {
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:search:latest.integration'
     compile 'com.yanzhenjie:recyclerview-swipe:1.1.3'
-    compile 'com.tencent.sonic:sdk:2.0.0-alpha'
+    compile 'com.tencent.sonic:sdk:3.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation project(':FastBleLib')
